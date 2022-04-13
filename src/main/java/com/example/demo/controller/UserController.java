@@ -11,16 +11,27 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
+import static com.example.demo.model.UserHolder.myList;
+
 @RestController
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
     @GetMapping
     public User createUser(){
-        return userService.createUser();
+        return UserService.createUser();
     }
     @GetMapping("/3")
     public ArrayList<User> getAllUsers() {
         return userService.getThreeUsers();
+    }
+    @PostMapping("/add")
+    public void addUserToList(){
+        myList.add(User.createUser());
+    }
+    @GetMapping("seeList")
+    public ArrayList<User> showList()
+    {
+        return myList;
     }
 }

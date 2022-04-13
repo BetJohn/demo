@@ -8,6 +8,7 @@ import lombok.Data;
 import javax.annotation.processing.Generated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.ArrayList;
 import java.util.stream.Stream;
 
 @Data
@@ -19,7 +20,6 @@ public class User {
     private String name;
     private Integer age;
     static private Integer maxId = 0;
-
     public User(Integer id, String name, Integer age) {
         this.id = ++maxId;
         this.name = name;
@@ -36,7 +36,6 @@ public class User {
     public static Stream<User> stream(){
         return Stream.of(createUser(),createUser(),createUser());
     }
-
     public static Integer getMaxId() {
         return maxId;
     }
