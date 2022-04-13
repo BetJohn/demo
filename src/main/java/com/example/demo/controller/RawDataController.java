@@ -13,8 +13,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class RawDataController {
     private final CalculatorService calculatorService;
-    @PostMapping
-    public Integer compute(@RequestBody RawData rawData){
-        return calculatorService.compute(rawData);
-    }
 }
